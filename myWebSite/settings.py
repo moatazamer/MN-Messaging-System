@@ -1,5 +1,6 @@
 import os
 import django_heroku
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -8,9 +9,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get(SECRET_KEY)
+SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECRET_KEY = os.environ['SECRET_KEY']
-ENCRYPT_KEY = os.environ.get(ENCRYPT_KEY)
+
+
+ENCRYPT_KEY = bytes(os.environ["ENCRYPT_KEY"], "utf-8").decode('unicode_escape')
 # ENCRYPT_KEY = os.environ['ENCRYPT_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -36,7 +39,7 @@ INSTALLED_APPS = [
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'MN.MessagingSystem@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get(EMAIL_HOST_PASSWORD)
+EMAIL_HOST_PASSWORD =os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 
 MIDDLEWARE = [
