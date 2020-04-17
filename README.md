@@ -6,6 +6,6 @@ NOTE: The Website may take several Seconds to load at the Beginning. <br/>
 The Dumped Database is available through the following URL; <br/>
 https://mn-messaging-system.herokuapp.com/dbdump <br/>
 NOTE: The Messages and Users can be found at the End of the Downloaded dbdump File. 
-## Developed-By:
+## Developers
 Moataz Amer <br/>
 Noha Hamid
