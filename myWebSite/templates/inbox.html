@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a  align="left" href="{% url 'home' %}"> <svg class="bi bi-arrow-left-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+  <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+</svg> Home</a>
+<center>
+<h2 > <svg class="bi bi-inbox" width="30px" height="30px " viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M3.81 4.063A1.5 1.5 0 014.98 3.5h6.04a1.5 1.5 0 011.17.563l3.7 4.625a.5.5 0 01-.78.624l-3.7-4.624a.5.5 0 00-.39-.188H4.98a.5.5 0 00-.39.188L.89 9.312a.5.5 0 11-.78-.624l3.7-4.625z" clip-rule="evenodd"/>
+<path fill-rule="evenodd" d="M.125 8.67A.5.5 0 01.5 8.5H6a.5.5 0 01.5.5 1.5 1.5 0 003 0 .5.5 0 01.5-.5h5.5a.5.5 0 01.496.562l-.39 3.124a1.5 1.5 0 01-1.489 1.314H1.883a1.5 1.5 0 01-1.489-1.314l-.39-3.124a.5.5 0 01.121-.393zm.941.83l.32 2.562a.5.5 0 00.497.438h12.234a.5.5 0 00.496-.438l.32-2.562H10.45a2.5 2.5 0 01-4.9 0H1.066z" clip-rule="evenodd"/>
+</svg> <font face="Impact"> Inbox</font></h2>
+
+
+<div align="centered" class="card" style="width: 700px; align: centered;">
+<div class="card-body">
+<div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+
+{% if text_messages %}
+{% for message in text_messages %}
+
+  <div class="list-group-item list-group-item-action flex-column align-items-start active">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">From: {{ message.sender }} </h5><br/>
+
+      <small >Time: {{ message.time }}</small>
+
+
+    </div>
+    <p align="left" class="mb-1">Message: {{ message.content }}</p>
+
+  </div>
+
+  <br/>
+
+{% endfor %}
+{% else %}
+<div class="list-group-item list-group-item-action flex-column align-items-start active">
+<p align="left" class="mb-1" >No Messages Yet.</p></div>
+{% endif %}
+
+</div>
+</div>
+</div>
+</center>
+{% endblock %}
